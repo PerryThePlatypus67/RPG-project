@@ -1,7 +1,7 @@
-package classi_con_SOLID;
-import classi_senza_SOLID.Elemento;
+package it.unicam.cs.mpgc.rpg129031;
 
 import java.io.Serializable;
+
 public abstract class Statistiche implements Serializable, ValoreMisurabile {
 
     private static final long serialVersionUID = 1L;
@@ -15,38 +15,38 @@ public abstract class Statistiche implements Serializable, ValoreMisurabile {
     private int velocita;
     private int critRate;
     private int critDMG;
-    public abstract Elemento getElementoInCombattimento();
-    public abstract void eseguiTurno();
 
-    // --- COSTRUTTORE ---
     public Statistiche(String nome, int hpMax, int attacco, int difesa, int velocita, int critRate, int critDMG, int attaccoElementare) {
         this.nome = nome;
         this.hpMax = hpMax;
         this.hpAttuali = hpMax;
         this.attacco = attacco;
-        this.attaccoElementare = attaccoElementare;
-        setDifesa(difesa);
+        this.difesa = difesa;
         this.velocita = velocita;
         this.critRate = critRate;
         this.critDMG = critDMG;
+        this.attaccoElementare = attaccoElementare;
     }
 
+    // --- INTERFACCIA VALORE MISURABILE ---
     @Override
     public int getValoreAttuale() { return this.hpAttuali; }
 
     @Override
     public int getValoreMassimo() { return this.hpMax; }
 
-    public abstract Elemento getElementoInCombattimento();
+    // --- METODI ASTRATTI ---
+    public abstract String getElementoInCombattimento();
     public abstract void eseguiTurno();
 
+    // --- LOGICA ---
     public void rigeneraCompletamente() {
         this.hpAttuali = this.hpMax;
     }
-    public void preparaPerCombattimento() {
-        this.hpAttuali = this.hpMax;
-    }
 
+    public boolean isVivo() {
+        return this.hpAttuali > 0;
+    }
 
     // --- GETTER ---
     public String getNome() { return nome; }
@@ -64,32 +64,17 @@ public abstract class Statistiche implements Serializable, ValoreMisurabile {
     public void setHpMax(int hpMax) { this.hpMax = hpMax; }
 
     public final void setHpAttuali(int nuoviHP) {
-        if (nuoviHP < 0) {
-            this.hpAttuali = 0;
-        } else if (nuoviHP > this.hpMax) {
-            this.hpAttuali = this.hpMax;
-        } else {
-            this.hpAttuali = nuoviHP;
-        }
+        this.hpAttuali = Math.max(0, Math.min(nuoviHP, this.hpMax));
     }
 
     public void setAttacco(int attacco) { this.attacco = attacco; }
     public void setAttaccoElementare(int attaccoElementare) { this.attaccoElementare = attaccoElementare; }
 
     public final void setDifesa(int difesa) {
-        if (difesa < 0) {
-            this.difesa = 0;
-        } else if (difesa > 100) {
-            this.difesa = 100;
-        } else {
-            this.difesa = difesa;
-        }
+        this.difesa = Math.max(0, Math.min(difesa, 100));
     }
+
     public void setVelocita(int velocita) { this.velocita = velocita; }
     public void setCritRate(int critRate) { this.critRate = critRate; }
     public void setCritDMG(int critDMG) { this.critDMG = critDMG; }
-
-    public boolean isVivo() {
-        return this.hpAttuali > 0;
-    }
 }

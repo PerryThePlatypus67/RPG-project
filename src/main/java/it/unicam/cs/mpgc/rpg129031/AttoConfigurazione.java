@@ -1,17 +1,16 @@
-package classi_con_SOLID;
+package it.unicam.cs.mpgc.rpg129031;
 
-import classi_senza_SOLID.CatalogoMostri;
-import classi_senza_SOLID.Elemento;
+import java.util.List;
 
 public class AttoConfigurazione implements InAtto {
     private final int numeroAtto;
     private final int vita, attacco, difesa, velocita, critRate, critDMG, attaccoElementare;
-    private final Elemento elemento;
+    private final String elemento;
     private final String descrizione, nomeFile;
-    private final CatalogoMostri catalogoMostri;
+    private final String catalogoMostri;
 
 
-    public AttoConfigurazione(int numeroAtto, int vita, int attacco, int difesa, int velocita, int critRate, int critDMG, int attaccoElementare, Elemento elemento, String descrizione, String nomeFile, CatalogoMostri catalogoMostri) {
+    public AttoConfigurazione(int numeroAtto, int vita, int attacco, int difesa, int velocita, int critRate, int critDMG, int attaccoElementare, String elemento, String descrizione, String nomeFile, String catalogoMostri) {
         this.numeroAtto = numeroAtto;
         this.vita = vita;
         this.attacco = attacco;
@@ -58,8 +57,14 @@ public class AttoConfigurazione implements InAtto {
         return attaccoElementare;
     }
 
-    public Elemento getElemento() {
-        return elemento;
+    @Override
+    public String getElemento() {
+        return this.elemento;
+    }
+
+    @Override
+    public List<Opzioni> getOpzioni() {
+        return List.of();
     }
 
     public String getDescrizione() {
@@ -70,7 +75,13 @@ public class AttoConfigurazione implements InAtto {
         return nomeFile;
     }
 
+    @Override
+    public String getNomeFileStoria() {
+        return "";
+    }
+
+    @Override
     public CatalogoMostri getCatalogoMostri() {
-        return catalogoMostri;
+        return null;
     }
 }

@@ -1,11 +1,17 @@
 {
-  "atti": [
+  "giocatore_pre_set": [
     {
       "numero": 0,
       "nomeFile": "prologo.txt",
       "vita": 10,
       "attacco": 2,
       "difesa": 5,
+      "velocita": 5,
+      "critRate": 25,
+      "critDMG": 4,
+      "dannoelementare": 0,
+      "elemento": "NEUTRO"
+
 
     },
     {
@@ -14,6 +20,11 @@
       "vita": 100,
       "attacco": 13,
       "difesa": 15,
+      "velocita": 6,
+      "critRate": 5,
+      "critDMG": 2,
+      "dannoelementare": 2,
+      "elemento": "NEBBIA"
 
     },
     {
@@ -22,6 +33,12 @@
       "vita": 200,
       "attacco": 6,
       "difesa": 25,
+      "velocita": 6,
+      "critRate": 5,
+      "critDMG": 4,
+      "dannoelementare": 2,
+      "elemento": "BESTIA"
+
 
     },
     {
@@ -29,7 +46,12 @@
       "nomeFile": "Atto_3.txt",
       "vita": 300,
       "attacco": 15,
-      "difesa":
+      "difesa": 35,
+      "velocita": 6,
+      "critRate": 15,
+      "critDMG": 5,
+      "dannoelementare": 4,
+      "elemento": "SERPENTE"
     }
   ]
 }

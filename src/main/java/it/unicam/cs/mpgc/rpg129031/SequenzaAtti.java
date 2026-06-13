@@ -1,4 +1,4 @@
-package classi_con_SOLID;
+package it.unicam.cs.mpgc.rpg129031;
 
 import java.util.List;
 
@@ -12,6 +12,10 @@ public class SequenzaAtti {
 
     public InAtto corrente() {
         return atti.get(indiceCorrente);
+    }
+
+    public boolean haAncoraAtti() {
+        return indiceCorrente < atti.size();
     }
 
     public boolean avanza() {

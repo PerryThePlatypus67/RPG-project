@@ -1,38 +1,41 @@
-package classi_con_SOLID;
+package it.unicam.cs.mpgc.rpg129031;
 
-import classi_senza_SOLID.Elemento;
+public class Mostro extends Statistiche implements InCombattimento {
 
-public class Mostro extends Statistiche {
-    private Elemento elementoNativo;
+    private String elementoNativo;
     private int dannoArma;
 
-    public Mostro(String nome, int hpMax, int attacco, int difesa, int velocita, int critRate, int critDMG, int attaccoElementare, Elemento elementoNativo){
+    public Mostro(String nome, int hpMax, int attacco, int difesa, int velocita,
+                  int critRate, int critDMG, int attaccoElementare, String elementoNativo, int dannoArma) {
         super(nome, hpMax, attacco, difesa, velocita, critRate, critDMG, attaccoElementare);
-       this.elementoNativo = elementoNativo;
-       this.dannoArma = dannoArma;
-
-    }
-
-    public Elemento getElementoNativo() { return elementoNativo; }
-
-    public void setElementoNativo(Elemento elementoNativo) {
         this.elementoNativo = elementoNativo;
+        this.dannoArma = dannoArma;
+        this.setHpAttuali(hpMax);
     }
 
     @Override
-    public Elemento getElementoInCombattimento(){
+    public String getElementoInCombattimento() {
         return this.elementoNativo;
     }
 
     @Override
-    public void eseguiTurno() {
+    public void subisciDanno(int danno) {
+        int nuovaVita = Math.max(0, this.getHpAttuali() - danno);
+        this.setHpAttuali(nuovaVita);
+        System.out.println(this.getNome() + " ha subito " + danno + " danni!");
     }
 
-    public boolean isVivo(){
+    @Override
+    public boolean isVivo() {
         return this.getHpAttuali() > 0;
     }
-    public int getDannoArma() {
-        return dannoArma;
+
+    @Override
+    public void eseguiTurno() {
+
     }
 
+    public String getElementoNativo() { return elementoNativo; }
+    public void setElementoNativo(String elementoNativo) { this.elementoNativo = elementoNativo; }
+    public int getDannoArma() { return dannoArma; }
 }

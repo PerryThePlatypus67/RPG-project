@@ -1,13 +1,15 @@
-package classi_con_SOLID;
+package it.unicam.cs.mpgc.rpg129031;
 
-import classi_senza_SOLID.CatalogoMostri;
+import java.util.List;
 
 public interface InAtto {
-    int getNumeroAtto();
-    int getVita();
-    int getAttacco();
-    int getDifesa();
+    String getNomeFileStoria();
     CatalogoMostri getCatalogoMostri();
-    String getNomeFile();
+    int getNumeroAtto();
+
+    String getElemento();
+
+    List<Opzioni> getOpzioni();
+
     String getDescrizione();
 }

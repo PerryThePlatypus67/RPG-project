@@ -1,0 +1,7 @@
+{
+  "rarita": {
+    "COMUNE": { "nome": "Comune", "moltiplicatoreDanni": 1.0, "colore": "BIANCO" },
+    "NON_COMUNE": { "nome": "Non Comune", "moltiplicatoreDanni": 1.2, "colore": "VERDE" },
+    "RARA": { "nome": "Rara", "moltiplicatoreDanni": 1.5, "colore": "BLU" }
+  }
+}

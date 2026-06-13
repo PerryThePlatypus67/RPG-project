@@ -1,0 +1,52 @@
+{
+  "catalogoMostri": [
+    {
+      "id": "SLIME",
+      "nome": "Slime",
+      "vita": 5,
+      "attacco": 5,
+      "difesa": 0,
+      "velocita": 2,
+      "critRate": 2,
+      "critDMG": 2,
+      "attaccoElementare": 0,
+      "elementoNativo": "NEBBIA"
+    },
+    {
+      "id": "GOBLIN",
+      "nome": "Goblin",
+      "vita": 10,
+      "attacco": 10,
+      "difesa": 2,
+      "velocita": 5,
+      "critRate": 5,
+      "critDMG": 10,
+      "attaccoElementare": 0,
+      "elementoNativo": "BESTIA"
+    },
+    {
+      "id": "LARVA_DEI_SEPOLCRI",
+      "nome": "Larva dei sepolcri",
+      "vita": 20,
+      "attacco": 15,
+      "difesa": 2,
+      "velocita": 5,
+      "critRate": 5,
+      "critDMG": 10,
+      "attaccoElementare": 0,
+      "elementoNativo": "SERPENTE"
+    },
+    {
+      "id": "UCCELLO_DEL_MALEFUFFAGURU",
+      "nome": "Uccello del Malefuffaguru",
+      "vita": 250,
+      "attacco": 20,
+      "difesa": 5,
+      "velocita": 5,
+      "critRate": 2,
+      "critDMG": 10,
+      "attaccoElementare": 20,
+      "elementoNativo": "VENTO"
+    }
+  ]
+}

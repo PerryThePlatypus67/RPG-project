@@ -1,0 +1,36 @@
+{
+  "elementi": [
+    {
+      "id": "NEUTRO",
+      "nomeVisualizzato": "Neutro"
+    },
+    {
+      "id": "VENTO",
+      "nomeVisualizzato": "Vento"
+    },
+    {
+      "id": "NEBBIA",
+      "nomeVisualizzato": "Nebbia"
+    },
+    {
+      "id": "BESTIA",
+      "nomeVisualizzato": "Bestia"
+    },
+    {
+      "id": "SERPENTE",
+      "nomeVisualizzato": "Serpente"
+    },
+    {
+      "id": "FIORE",
+      "nomeVisualizzato": "Fiore"
+    },
+    {
+      "id": "TERRA",
+      "nomeVisualizzato": "Terra"
+    },
+    {
+      "id": "AMORE",
+      "nomeVisualizzato": "Amore"
+    }
+  ]
+}

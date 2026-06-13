@@ -1,4 +1,4 @@
-package classi_con_SOLID;
+package it.unicam.cs.mpgc.rpg129031;
 
 public class StampaAtto {
     public void stampa(InAtto atto) {

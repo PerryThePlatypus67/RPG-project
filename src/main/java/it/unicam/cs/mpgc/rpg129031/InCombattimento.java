@@ -1,22 +1,11 @@
-package classi_con_SOLID;
+package it.unicam.cs.mpgc.rpg129031;
 
-public interface InCombattimento {
-        String getNome();
-        int getHpAttuali();
-        void subisciDanno(int danno);
-        boolean isVivo();
+public interface InCombattimento extends ValoreMisurabile {
+    String getNome();
+    int getHpAttuali();
+    void subisciDanno(int danno);
+    boolean isVivo();
+    String getElementoInCombattimento();
 
-        Elemento getElementoInCombattimento();
-    private boolean combattimentoFinito() {
-        return !squadraViva(squadraGiocatori) || !squadraViva(squadraNemici);
-    }
-
-    private boolean squadraViva(List<ICombattente> squadra) {
-        return squadra.stream().anyMatch(ICombattente::isVivo);
-    }
-
-    private void notificaVincitore() {
-        boolean vittoria = squadraViva(squadraGiocatori);
-        System.out.println(vittoria ? "Vittoria!" : "Sconfitta!");
-    }
+    void eseguiTurno();
 }

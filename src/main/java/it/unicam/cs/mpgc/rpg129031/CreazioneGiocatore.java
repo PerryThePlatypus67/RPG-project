@@ -1,11 +1,19 @@
-package classi_con_SOLID;
-
-import classi_senza_SOLID.CatalogoArmi;
+package it.unicam.cs.mpgc.rpg129031;
 
 public class CreazioneGiocatore {
-    public static Giocatore creaGiocatore(String nome) {
-        Giocatore p = new Giocatore(nome, 10, 2, 5, 5, 25, 2, 0);
-        p.equipaggiaArma(CatalogoArmi.SPADA.creaArma());
+
+    public static Giocatore creaGiocatore(String nome, CatalogoArmi catalogo) {
+        // CORREZIONE: Devi passare 8 parametri (i valori numerici)
+        // Esempio: nome, hpMax, attacco, difesa, velocita, critRate, critDMG, attaccoElementare
+        Giocatore p = new Giocatore(nome, 100, 15, 10, 5, 0, 0, 0);
+
+        // Ora puoi equipaggiare l'arma
+        Arma armaIniziale = catalogo.getArma("Spada");
+
+        if (armaIniziale != null) {
+            p.equipaggiaArma(armaIniziale);
+        }
+
         return p;
     }
 }

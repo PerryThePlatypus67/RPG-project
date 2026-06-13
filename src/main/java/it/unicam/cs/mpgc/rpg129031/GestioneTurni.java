@@ -1,33 +1,39 @@
-package classi_con_SOLID;
-
-import java.util.List;
+package it.unicam.cs.mpgc.rpg129031;
 
 public class GestioneTurni {
-    private final List<ICombattente> squadraGiocatori;
-    private final List<ICombattente> squadraNemici;
-    private int turnoAttuale = 1;
+    private final InCombattimento giocatore;
+    private final InCombattimento nemico;
 
-    public GestioneTurni(List<ICombattente> giocatori, List<ICombattente> nemici) {
-        this.squadraGiocatori = giocatori;
-        this.squadraNemici = nemici;
+    public GestioneTurni(InCombattimento giocatore, InCombattimento nemico) {
+        this.giocatore = giocatore;
+        this.nemico = nemico;
     }
 
     public void avvioCombattimento() {
         System.out.println("--- INIZIO COMBATTIMENTO ---");
 
-        List<ICombattente> tutti = new ArrayList<>(squadraGiocatori);
-        tutti.addAll(squadraNemici);
-        tutti.sort((a, b) -> Integer.compare(b.getVelocita(), a.getVelocita()));
+        // Ciclo finché entrambi sono vivi
+        while (giocatore.isVivo() && nemico.isVivo()) {
 
-        while (!combattimentoFinito()) {
-            for (ICombattente p : tutti) {
-                if (p.isVivo()) {
-                    p.eseguiTurno();
-                }
-                if (combattimentoFinito()) break;
+            // Turno del Giocatore
+            System.out.println("\nTurno di: " + ((Statistiche)giocatore).getNome());
+            giocatore.eseguiTurno();
+
+            // Controllo se il nemico è ancora vivo prima di farlo attaccare
+            if (nemico.isVivo()) {
+                System.out.println("\nTurno di: " + ((Statistiche)nemico).getNome());
+                nemico.eseguiTurno();
             }
-            turnoAttuale++;
         }
+
         notificaVincitore();
+    }
+
+    private void notificaVincitore() {
+        if (giocatore.isVivo()) {
+            System.out.println("\n[!] Vittoria! " + ((Statistiche)giocatore).getNome() + " ha vinto!");
+        } else {
+            System.out.println("\n[!] Sconfitta... " + ((Statistiche)nemico).getNome() + " ha vinto!");
+        }
     }
 }

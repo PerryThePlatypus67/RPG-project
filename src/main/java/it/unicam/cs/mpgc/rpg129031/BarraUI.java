@@ -1,11 +1,9 @@
-package classi_con_SOLID;
-
-import it.unicam.cs.mpgc.rpg129031.Main;
+package it.unicam.cs.mpgc.rpg129031;
 
 public class BarraUI {
     private static final int LUNGHEZZA = 10;
 
-    public static String genera(IValoreMisurabile valore) {
+    public static String genera(ValoreMisurabile valore) {
         int attuale = valore.getValoreAttuale();
         int max = valore.getValoreMassimo();
 
