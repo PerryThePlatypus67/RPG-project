@@ -1,0 +1,36 @@
+{
+  "giocatore_pre_set": [
+    {
+      "numero": 0,
+      "nomeFile": "prologo.txt",
+      "vita": 10,
+      "attacco": 2,
+      "difesa": 5,
+      "velocita": 5
+    },
+    {
+      "numero": 1,
+      "nomeFile": "Atto_1.txt",
+      "vita": 100,
+      "attacco": 13,
+      "difesa": 15,
+      "velocita": 6
+    },
+    {
+      "numero": 2,
+      "nomeFile": "Atto_2.txt",
+      "vita": 200,
+      "attacco": 6,
+      "difesa": 25,
+      "velocita": 6
+    },
+    {
+      "numero": 3,
+      "nomeFile": "Atto_3.txt",
+      "vita": 300,
+      "attacco": 15,
+      "difesa": 35,
+      "velocita": 6
+    }
+  ]
+}
