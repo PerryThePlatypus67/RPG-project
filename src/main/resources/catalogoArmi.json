@@ -1,0 +1,39 @@
+{
+  "armi": [
+    {
+      "id": "VENTAGLIO_DI_BASHO",
+      "nome": "Ventaglio di Basho",
+      "danni": 11,
+      "danniElementari": 4,
+      "elemento": "VENTO"
+    },
+    {
+      "id": "KATANA_DELL_OTTENEBRAMENTO",
+      "nome": "Katana dell'Ottenebramento",
+      "danni": 13,
+      "danniElementari": 3,
+      "elemento": "NEBBIA"
+    },
+    {
+      "id": "ZANNE_DEL_LUPO_FENRIR",
+      "nome": "Zanne del lupo Fenrir",
+      "danni": 6,
+      "danniElementari": 2,
+      "elemento": "BESTIA"
+    },
+    {
+      "id": "URUMI",
+      "nome": "Urumi",
+      "danni": 8,
+      "danniElementari": 4,
+      "elemento": "SERPENTE"
+    },
+    {
+      "id": "SPADA",
+      "nome": "Spada",
+      "danni": 2,
+      "danniElementari": 0,
+      "elemento": "NEUTRO"
+    }
+  ]
+}
