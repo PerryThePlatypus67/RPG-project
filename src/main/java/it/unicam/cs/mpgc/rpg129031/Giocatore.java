@@ -1,44 +1,42 @@
 package it.unicam.cs.mpgc.rpg129031;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Giocatore extends Statistiche implements InCombattimento, Serializable {
     private static final long serialVersionUID = 1L;
     private Arma armaEquipaggiata;
-    private int livello;
 
-    public Giocatore(String nome, int hpMax, int attacco, int difesa, int velocita, int critRate, int critDMG, int attaccoElementare) {
-        super(nome, hpMax, attacco, difesa, velocita, critRate, critDMG, attaccoElementare);
+    public Giocatore(String nome, int hpMax, int attacco, int difesa, int velocita) {
+        super(nome, hpMax, attacco, difesa, velocita);
         this.setHpAttuali(hpMax);
-        this.livello = 1;
     }
 
     public Giocatore(String nome, int hpAttuali) {
-        // Valori di default per le statistiche non presenti nel salvataggio
-        super(nome, hpAttuali, 10, 5, 5, 0, 0, 0);
+        super(nome, hpAttuali, 10, 5, 5);
         this.setHpAttuali(hpAttuali);
-        this.livello = 1;
+    }
+    private List<StatisticheAtto> listaStatistiche;
+
+    public void setListaStatistiche(List<StatisticheAtto> lista) {
+        this.listaStatistiche = lista;
     }
 
     public void adeguaStatistichePerAtto(int numeroAtto) {
-        switch (numeroAtto) {
-            case 0: // ATTO 0
-                this.setAttacco(10);
-                this.setDifesa(5);
-                break;
-            case 1: // ATTO 1
-                this.setAttacco(20);
-                this.setDifesa(10);
-                break;
-            case 2: // ATTO 2
-                this.setAttacco(35);
-                this.setDifesa(20);
-                break;
-            default:
-                this.setAttacco(50);
-                break;
+        if (listaStatistiche == null) return;
+
+        StatisticheAtto stats = listaStatistiche.stream()
+                .filter(s -> s.numero == numeroAtto)
+                .findFirst()
+                .orElse(null);
+
+        if (stats != null) {
+            this.setHpMax(stats.vita);
+            this.setHpAttuali(stats.vita);
+            this.setAttacco(stats.attacco);
+            this.setDifesa(stats.difesa);
+            this.setVelocita(stats.velocita);
         }
-        System.out.println("Statistiche aggiornate per l'Atto " + numeroAtto);
     }
 
     public void equipaggiaArma(Arma nuovaArma) {
@@ -48,10 +46,6 @@ public class Giocatore extends Statistiche implements InCombattimento, Serializa
 
     public Arma getArmaEquipaggiata() { return armaEquipaggiata; }
 
-    @Override
-    public String getElementoInCombattimento() {
-        return (this.armaEquipaggiata != null) ? this.armaEquipaggiata.getElemento() : "NEUTRO";
-    }
 
     @Override
     public void subisciDanno(int danno) {

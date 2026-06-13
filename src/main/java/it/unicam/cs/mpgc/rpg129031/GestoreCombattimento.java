@@ -7,7 +7,7 @@ public class GestoreCombattimento {
 
     public void avviaControUccello(InCombattimento giocatore, Scanner scanner) {
 
-        InCombattimento uccello = new Mostro("Uccello", 30, 5, 5, 0, 0, 0, 0, "Aria", 10);
+        InCombattimento uccello = new Mostro("Uccello", 30, 5, 5,  4);
 
         System.out.println("\n" + Main.ROSSO + "ATTENZIONE: Un Uccello ti sbarra la strada!" + Main.RESET);
 
@@ -34,8 +34,7 @@ public class GestoreCombattimento {
     }
 
     private void eseguiTurnoNemico(InCombattimento nemico, InCombattimento giocatore) {
-        // Assicurati che il cast a (Statistiche) sia supportato dalle tue classi
-        int danno = CalcolatoreCombattimento.calcola((Statistiche) nemico, (Statistiche) giocatore, nemico.getElementoInCombattimento(), null);
+        int danno = CalcolatoreCombattimento.calcola((Statistiche) nemico, (Statistiche) giocatore, null);
         giocatore.subisciDanno(danno);
         System.out.println("Il " + nemico.getNome() + " ti ha inflitto " + danno + " danni!");
     }
@@ -44,7 +43,7 @@ public class GestoreCombattimento {
         System.out.println("\n1. Attacca");
         System.out.print("Scelta: ");
         if ("1".equals(scanner.nextLine())) {
-            int danno = CalcolatoreCombattimento.calcola((Statistiche) giocatore, (Statistiche) nemico, giocatore.getElementoInCombattimento(), null);
+            int danno = CalcolatoreCombattimento.calcola((Statistiche) giocatore, (Statistiche) nemico, null);
             nemico.subisciDanno(danno);
             System.out.println("Hai inflitto " + danno + " danni!");
             return true;
@@ -72,14 +71,14 @@ public class GestoreCombattimento {
 
         switch (nome) {
             case "Guardiano delle Rovine":
-                nemico = new Mostro("Guardiano delle Rovine", 50, 8, 8, 0, 0, 0, 0, "Terra", 15);
+                nemico = new Mostro("Guardiano delle Rovine", 50, 8, 8,  5);
                 break;
             case "Uccello del malefuffaguru":
-                nemico = new Mostro("Uccello del malefuffaguru", 100, 15, 10, 0, 0, 0, 0, "Fuoco", 20);
+                nemico = new Mostro("Uccello del malefuffaguru", 100, 15, 10, 5);
                 break;
             case "Uccello":
             default:
-                nemico = new Mostro("Uccello", 30, 5, 5, 0, 0, 0, 0, "Aria", 10);
+                nemico = new Mostro("Uccello", 30, 5, 5, 5);
                 break;
         }
 

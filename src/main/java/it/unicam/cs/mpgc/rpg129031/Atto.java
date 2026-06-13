@@ -12,40 +12,26 @@ public enum Atto implements InAtto {
 
     @Override
     public String getDescrizione() {
-        switch (this) {
-            case ATTO_0: return "Prologo: Il risveglio";
-            case ATTO_1: return "Atto 1: La foresta dei sussurri";
-            case ATTO_2: return "Atto 2: Le rovine dimenticate";
-            case ATTO_3: return "Atto 3: Il confronto finale";
-            default: return "Sconosciuto";
-        }
+        return switch (this) {
+            case ATTO_0 -> "Prologo: Il risveglio";
+            case ATTO_1 -> "Atto 1: La foresta dei sussurri";
+            case ATTO_2 -> "Atto 2: Le rovine dimenticate";
+            case ATTO_3 -> "Atto 3: Il confronto finale";
+        };
     }
 
     @Override
     public List<Opzioni> getOpzioni() {
-        switch (this) {
-            case ATTO_0:
-                return List.of(new OpzioneCombattimento("1. Affronta l'Uccello che ti blocca la strada"));
-            case ATTO_1:
-                return List.of(new OpzioneEsplorazione("1. Addentrati nella Capitale"));
-            case ATTO_2:
-                // Qui inseriamo il nuovo combattimento specifico per l'Atto 2
-                return List.of(new OpzioneCombattimento("1. Affronta il Guardiano delle Rovine"));
-            case ATTO_3:
-                return List.of(new OpzioneCombattimento("1. Affronta il Boss Finale"));
-            default:
-                return List.of();
-        }
-    }
-
-    @Override
-    public CatalogoMostri getCatalogoMostri() {
-        return new CatalogoMostri("catalogoMostri.json");
+        return switch (this) {
+            case ATTO_0 -> List.of(new OpzioneCombattimento("1. Affronta l'Uccello che ti blocca la strada"));
+            case ATTO_1 -> List.of(new OpzioneEsplorazione("1. Addentrati nella Capitale"));
+            case ATTO_2 ->
+                    List.of(new OpzioneCombattimento("1. Affronta il Guardiano delle Rovine"));
+            case ATTO_3 -> List.of(new OpzioneCombattimento("1. Affronta il Boss Finale"));
+        };
     }
 
     @Override
     public int getNumeroAtto() { return this.ordinal(); }
 
-    @Override
-    public String getElemento() { return ""; }
 }

@@ -15,11 +15,6 @@ public class AttoStatistiche {
         giocatore.setHpMax(stats.vita);
         giocatore.setAttacco(stats.attacco);
         giocatore.setDifesa(stats.difesa);
-        giocatore.setAttaccoElementare(stats.dannoelementare);
-        giocatore.setCritDMG(stats.critDMG);
-        giocatore.setCritRate(stats.critRate);
         giocatore.setVelocita(stats.velocita);
-
-        System.out.println("Statistiche applicate per l'elemento: " + stats.elemento);
     }
 }

@@ -9,12 +9,7 @@ public class Prologo implements InAtto {
 
     @Override
     public int getNumeroAtto() {
-        return 0; // Il prologo è l'atto 0
-    }
-
-    @Override
-    public String getElemento() {
-        return "";
+        return 0;
     }
 
     @Override
@@ -30,11 +25,6 @@ public class Prologo implements InAtto {
     @Override
     public String getNomeFileStoria() {
         return "prologo";
-    }
-
-    @Override
-    public CatalogoMostri getCatalogoMostri() {
-        return new CatalogoMostri("resources/catalogoMostri.json");
     }
 
  }

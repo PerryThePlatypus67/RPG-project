@@ -1,6 +1,12 @@
 package it.unicam.cs.mpgc.rpg129031;
 
+import com.google.gson.Gson;
 import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -14,6 +20,16 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Giocatore giocatore = null;
         InAtto attoAttuale = null;
+
+        List<StatisticheAtto> listaStatistiche = new ArrayList<>();
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get("configurazione.json"));
+            ConfigurazioneAtti config = new Gson().fromJson(reader, ConfigurazioneAtti.class);
+            listaStatistiche = config.giocatore_pre_set;
+            reader.close();
+        } catch (IOException e) {
+            System.out.println(ROSSO + "Errore: File di configurazione non trovato!" + RESET);
+        }
 
         boolean menuIniziale = true;
         while (menuIniziale) {

@@ -8,7 +8,7 @@ public class InizializzatoreGioco {
         System.out.print("Inserisci il nome del tuo eroe: ");
         String nome = scanner.nextLine();
 
-        Giocatore g = new Giocatore(nome, 100, 15, 10, 5, 0, 0, 0);
+        Giocatore g = new Giocatore(nome, 100, 15, 10, 5);
 
         g.equipaggiaArma(catalogo.getArma("Spada"));
 
