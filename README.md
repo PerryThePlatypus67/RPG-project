@@ -31,3 +31,8 @@ L'utilizzo dell'AI è stato finalizzato a:
 > Apprendimento Tecnico: Approfondimento di concetti avanzati, sintassi Java, corretta gestione delle dipendenze e implementazione di interfacce/metodi non immediatamente intuitivi.
 > Ottimizzazione: Revisione del codice per conformarsi ai principi SOLID
 Il controllo finale, l'integrazione delle soluzioni suggerite e la comprensione delle logiche implementate rimangono responsabilità esclusive mie, che ho utilizzato lo strumento come un tutor di supporto al processo di sviluppo.
+
+## Wiki
+Per accedere alla wiki andare su questo sito:
+https://heather-quiver-784.notion.site/Wiki-Text-RPG-352134630b0280a79e4cdab45a0406d6
+E' il sito web della wiki
